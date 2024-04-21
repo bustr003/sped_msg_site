@@ -36,13 +36,13 @@
 
         <div class="header">
             <h1 align="center">
-                <b>Exit 76/87 Transfer out</b>
+                <b>Exit 77 Deceased</b>
             </h1>
         </div> <!-- Header -->
 
         <script>
             function refresh(){
-                location.href = "exit_76_87.html";
+                location.href = "exit_77.html";
             }
             
             function displayNote(){
@@ -50,7 +50,7 @@
                 var fname = document.getElementById("fname").value.trim();
                 var requester = document.getElementById("requester").value.trim();
                 var role = document.getElementById("role").value.trim();
-                var req_type = document.getElementById("req_type").value.trim();
+                var req_type = "Exit 77 Deceased";
                 var req_comment = document.getElementById("req_comment").value.trim();
 
                 var note = "Note for ";
@@ -103,14 +103,6 @@
                     <option value="Program Specialist"></option>
                     <option value="Behavior Intervention Specialist"></option>
                     <option value="General Ed. Teacher"></option>
-                </datalist>
-
-                <br>
-                <label for="req_type">Type of Exit</label>
-                <input list="req_type_list" for="req_type" id="req_type" value="">
-                <datalist id="req_type_list">
-                    <option value="76 Transfer out within California"></option>
-                    <option value="87 Transfer out of California"></option>
                 </datalist>
 
                 <br>
