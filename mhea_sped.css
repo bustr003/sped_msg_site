@@ -1,0 +1,123 @@
+:root{
+    --font: Verdana, sans-serif;
+    --font_cute: Georgia, serif;
+    --bunny_blue: #8BC4D8;
+
+    --bunny_white: #F1E4EE;
+    --bunny_lt_pink: #DDAFD9;
+    --bunny_lt_purple: #CCAFDD;
+
+    --bunny_dark: black;
+    --bunny_brown: #B19170;
+    --bunny_dk_purple: #681577;
+}
+
+form{
+    font-family: var(--font);
+}
+
+button{
+    font-family: var(--font);
+}
+
+p{
+    font-size: 16px;
+    font-family: var(--font);
+    color: var(--bunny_dark);
+    margin-bottom: 25px;;
+  }
+  
+  .topright{
+    background-color: #CDEFE8;
+    float: right;
+    font-size: 25px;
+    font-family: Verdana, sans-serif;
+    color: #B19170;
+    margin-bottom: 25px;
+  }
+  
+  body{
+      background-color: var(--bunny_blue);
+  }
+  
+  /* UNORDERED LIST */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  ul.topnav{
+    background-color: var(--bunny_lt_purple);
+  }
+
+  .topnav_active{
+    color: var(--bunny_dk_purple);
+  }
+
+  /* list item */
+  
+  li a {
+    color: var(--bunny_dark);
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font);
+  }
+  
+  li a.submenu {
+    color: var(--bunny_dark);
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--font);
+    padding: 5px 5px;
+  }
+
+  li a.submenu:hover {
+    color: var(--bunny_white);
+  }
+  
+  li.topnav {
+    display: inline;
+    font-size: 20px;
+    padding: 20px 10px;
+  }
+
+  li a.topnav:hover {
+    background-color: var(--bunny_lt_pink);
+    color: var(--bunny_white);
+  }
+
+  li a.topnav_active:hover {
+    background-color: var(--bunny_lt_pink);
+    color: var(--bunny_white);
+  }
+  /* end UNORDERED LIST */
+  
+  .about1{
+   width: fit-content;
+   margin: auto;
+  }
+  
+  .about{
+  background-color: #FFFBEF;
+  border: 5px solid #B19170;
+  font-family: Verdana, sans-serif;
+  color: #B19170;
+  font-size: 25px;
+  width: 50%;
+  border-radius: 25px;
+  /*align: center;*/
+  margin: auto;
+  }
+  
+  h1{
+    text-align: center;
+    background-color: var(--bunny_blue); /* bunny blue */
+    font-size: 20px;
+    font-family: Verdana, sans-serif;
+    color: var(--bunny_dark);
+    margin-top:5px;
+    margin-bottom:5px;
+    width: fit-content;
+  }
