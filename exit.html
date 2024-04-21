@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="mhea_sped.css">
+        <link rel="icon" type="image/x-icon" href="images/bunny_face.ico">
         <title>SpEd Message Builder</title>
     </head>
 
-    <body>
+    <body class="purple">
         <!-- Logo -->
         <a href="index.html">
             <img src="images/bunny_index.jpg" height="75">
@@ -41,6 +42,10 @@
 
         <div class="body">
             <p align="left">
+                Exit an active SEIS record either because the student is no longer a SWD,
+                or the student is still a SWD but has left the district.
+
+                <br><br>
                 Select one:
             </p>
         </div> <!-- Body -->
@@ -55,12 +60,20 @@
                     <a class="submenu" href="constr.html">Exit 78 Written Revocation</a>
                 </li>
                 <li class="submenu">
-                    <a class="submenu" href="constr.html">Exit 76 Transfer out within California</a>
+                    <a class="submenu" href="constr.html">Exit 76/87 Transfer out</a>
                 </li>
                 <li class="submenu">
-                    <a class="submenu" href="constr.html">Exit 87 Transfer out of California</a>
+                    <a class="submenu" href="constr.html">Exit 77 Deceased</a>
                 </li>
             </ul>
         </div> <!-- Submenu -->
+
+        <p>
+            <br>* DO NOT USE Exit Reason 74 - Drop Out
+            <br><br>* DO  NOT USE Exit Reason 78 if the parent has not provided written revocation of services.
+            Written revocation must include student first and last name, student DOB, parent's name, parent's signature, date, and a state that the parent is withdrawing the student from SpEd services.
+            <br><br>* "EXITED SPED OUT OF STATE" is only to be used if the student was a SWD in California, moved out of CA and was exited SpEd outside of CA, then returned to CA. Upon return, CALPADS is not aware that the student was exited from SpEd, so this exit reason is used to report that the student is no longer a SWD.
+
+        </p>
     </body>
 </html>

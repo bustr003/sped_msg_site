@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="mhea_sped.css">
+        <link rel="icon" type="image/x-icon" href="images/bunny_face.ico">
         <title>SpEd Message Builder</title>
     </head>
 
-    <body>
+    <body class="orange">
         <!-- Logo -->
         <a href="index.html">
             <img src="images/bunny_index.jpg" height="75">
@@ -52,10 +53,11 @@
                 var req_comment = document.getElementById("req_comment").value.trim();
 
                 var note = "Note for ";
+                note += lname;
                 if(lname!="" && fname!=""){note+= ", ";}
                 note += fname;
                 note += "<br>" + requester + ", " + role + " requested: Add Student";
-                if(req_comment!=""){note += "<br>" + req_comment;}
+                if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
 
                 var req_status = document.getElementById("req_status").value;
                 var ssid = document.getElementById("ssid").value;
@@ -84,11 +86,13 @@
                 note += "<br>";
                 var enroll_start = document.getElementById("enroll_start").value;
                 var grade = document.getElementById("grade").value;
+                var mname = document.getElementById("mname").value;
                 var SOR = document.getElementById("SOR").value;
                 var SOA = document.getElementById("SOA").value;
 
                 if(enroll_start!=""){note += "<br>Enrollment Start Date: " + enroll_start;}
                 if(grade!=""){note += "<br>Grade: " + grade;}
+                if(mname!=""){note += "<br>Middle name: " + mname;}
                 if(SOR!=""){note += "<br>School of Residence: " + SOR;}
                 if(SOA!=""){note += "<br>School of Attendance: " + SOA;}
 
@@ -120,14 +124,16 @@
                 <label for="lname">Last Name</label>
                 <input type="text" id="lname" value="">
 
+                <br>
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" value="">
 
                 <br>
-
                 <label for="requester">Requested by</label>
                 <input type="text" id=requester>
 
+                <br>
+                <label for="role">Staff Role</label>
                 <input list="roles" id="role" value="">
                 <datalist id="roles">
                     <option value="Site"></option>
@@ -141,8 +147,8 @@
                 </datalist>
 
                 <br>
-                <label for="req_comment">Comment</label>
-                <textarea id="req_comment" rows=3 cols="50"></textarea>
+                <label for="req_comment">Request Comment</label>
+                <textarea id="req_comment" rows=2 cols="50"></textarea>
 
                 <datalist id="req_status_list">
                     <option value="Request completed."></option>
@@ -208,6 +214,13 @@
                 <br>
                 <label for="grade">Grade</label>
                 <input type="text" id="grade" value="">
+
+                <br>
+                <datalist id="mname_list">
+                    <option value="n/a"></option>
+                </datalist>
+                <label for="mname">Middle Name</label>
+                <input list="mname_list" for="mname" id="mname" value="">
 
                 <br>
                 <label for="SOR">School of Residence</label>
