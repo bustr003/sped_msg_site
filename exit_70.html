@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="mhea_sped.css">
+        <link rel="icon" type="image/x-icon" href="images/bunny_face.ico">
+        <title>SpEd Message Builder</title>
+    </head>
+
+    <body class="purple">
+        <!-- Logo -->
+        <a href="index.html">
+            <img src="images/bunny_index.jpg" height="75">
+        </a>
+
+        <!-- Navigation Bar -->
+        <div align="left">
+            <ul class="topnav">
+                <li class="topnav">
+                    <a class="topnav" href="index.html">Home</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav" href="add.html">Add</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav" href="status.html">Status</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav" href="exit.html">Exit</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav_active" href="other.html">Other</a>
+                </li>
+            </ul>
+        </div> <!-- Navigation Bar -->
+
+        <div class="header">
+            <h1 align="center">
+                <b>Exit 70 No longer eligible</b>
+            </h1>
+        </div> <!-- Header -->
+
+        <script>
+            function refresh(){
+                location.href = "exit_70.html";
+            }
+            
+            function displayNote(){
+                var lname = document.getElementById("lname").value.trim();
+                var fname = document.getElementById("fname").value.trim();
+                var requester = document.getElementById("requester").value.trim();
+                var role = document.getElementById("role").value.trim();
+                var req_type = "Exit 70 No longer eligible";
+                var req_comment = document.getElementById("req_comment").value.trim();
+
+                var note = "Note for ";
+                note += lname;
+                if(lname!="" && fname!=""){note+= ", ";}
+                note += fname;
+                note += "<br>" + requester + ", " + role + " requested: " + req_type;
+                if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
+
+                var req_status = document.getElementById("req_status").value;
+                note += "<br><br>" + req_status;
+
+                var statement = document.getElementById("statement").value;
+                if(statement=="Yes"){note += "<br>IEP says \"No longer eligible.\"";}
+
+                var date = document.getElementById("date").value;
+                note += "<br>Parent signed on " + date;
+
+                var special_notes = document.getElementById("special_notes").value.trim();
+                if(special_notes!=""){note += "<br>" + special_notes;}
+
+                var senr = document.getElementById("senr").value.trim();
+                if(senr!="n/a"){note += "<br><br>Non-ADA: " + senr;}
+                
+                return note;
+            }
+        </script>
+
+        <div class="body">
+            <form>
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" value="">
+
+                <br>
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" value="">
+
+                <br>
+                <label for="requester">Requested by</label>
+                <input type="text" id=requester>
+
+                <br>
+                <label for="role">Staff Role</label>
+                <input list="roles" for="role" id="role" value="">
+                <datalist id="roles">
+                    <option value="Site"></option>
+                    <option value="Psych"></option>
+                    <option value="Special Ed. Teacher"></option>
+                    <option value="SLP"></option>
+                    <option value="Occupational Therapist"></option>
+                    <option value="Program Specialist"></option>
+                    <option value="Behavior Intervention Specialist"></option>
+                    <option value="General Ed. Teacher"></option>
+                </datalist>
+
+                <br>
+                <label for="req_comment">Request Comment</label>
+                <textarea id="req_comment" rows=2 cols="50"></textarea>
+
+                <datalist id="req_status_list">
+                    <option value="Request completed."></option>
+                    <option value="Request partially completed."></option>
+                    <option value="No action needed."></option>
+                </datalist>
+
+                <br><br>
+                <label for="req_status"><b>REQUEST STATUS</b></label>
+                <input list="req_status_list" for="req_status" id="req_status" value="">
+
+                <datalist id="yn_list">
+                    <option value="Yes"></option>
+                </datalist>
+
+                <br>
+                <label for="statement">IEP says "No longer eligible"</label>
+                <input list="yn_list" id="statement" value="">
+
+                <br>
+                <label for="date">Parent signed on </label>
+                <input type="text" id="date" value="">
+
+                <br>
+                <textarea id="special_notes" rows=2 cols="50" placeholder="special notes..." value=""></textarea>
+
+                <br><br>
+                <datalist id="senr_list">
+                    <option value="n/a"></option>
+                    <option value="Notified Clerk to disenroll"></option>
+                </datalist>
+                <label for="senr">Non-ADA</label>
+                <input list="senr_list" id="senr" value="">
+            </form>
+
+            <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
+            <button onclick="refresh()">Clear Fields</button>
+
+            <p id="note"></p>
+        </div> <!-- Body -->
+    </body>
+</html>
