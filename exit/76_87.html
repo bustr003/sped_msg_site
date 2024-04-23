@@ -26,10 +26,10 @@
                     <a class="topnav" href="../status.html">Status</a>
                 </li>
                 <li class="topnav">
-                    <a class="topnav" href="../exit.html">Exit</a>
+                    <a class="topnav_active" href="../exit.html">Exit</a>
                 </li>
                 <li class="topnav">
-                    <a class="topnav_active" href="../other.html">Other</a>
+                    <a class="topnav" href="../other.html">Other</a>
                 </li>
             </ul>
         </div> <!-- Navigation Bar -->
@@ -46,6 +46,16 @@
             }
             
             function displayNote(){
+                const d = new Date();
+                let yyyy = d.getFullYear();
+                let mm = d.getMonth() + 1;
+                let dd = d.getDate();
+                let hour = d.getHours();
+                let minutes = d.getMinutes();
+                let seconds = d.getSeconds();
+                var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
+
+                var note = "Note from " + datetime + "<br>";
                 var lname = document.getElementById("lname").value.trim();
                 var fname = document.getElementById("fname").value.trim();
                 var requester = document.getElementById("requester").value.trim();
@@ -53,12 +63,14 @@
                 var req_type = document.getElementById("req_type").value.trim();
                 var req_comment = document.getElementById("req_comment").value.trim();
 
+                /*
                 var note = "Note for ";
                 note += lname;
                 if(lname!="" && fname!=""){note+= ", ";}
                 note += fname;
                 note += "<br>" + requester + ", " + role + " requested: " + req_type;
                 if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
+                */
 
                 var req_status = document.getElementById("req_status").value;
                 note += "<br><br>" + req_status;
@@ -124,9 +136,8 @@
                 </datalist>
 
                 <br><br>
-                <label for="req_status"><b>REQUEST STATUS</b></label>
-                <input list="req_status_list" for="req_status" id="req_status" value="">
-
+                <b>PROCEDURES</b>
+                
                 <br>
                 <label for="date">SIS Exit Date</label>
                 <input type="text" id="date" value="">
@@ -145,6 +156,10 @@
                 </datalist>
                 <label for="senr">Non-ADA</label>
                 <input list="senr_list" id="senr" value="">
+   
+                <br><br>
+                <label for="req_status"><b>Request status</b></label>
+                <input list="req_status_list" role="req_status" id="req_status" value="">
             </form>
 
             <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
