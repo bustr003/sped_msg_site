@@ -39,6 +39,8 @@
                 <b>uu Email Drafts</b>
             </h1>
             <p><a class="body" href="uu_help.html">Click here for help</a></p>
+            <br>
+            <button onclick="refresh()">Clear Fields</button>
         </div> <!-- Header -->
 
         <script>
@@ -119,7 +121,6 @@
 
         <div class="body">
             <form>
-                <br>
                 <label for="date">Date</label>
                 <input type="text" id="date" value="">
 
@@ -144,7 +145,6 @@
             </form>
 
             <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
-            <button onclick="refresh()">Clear Fields</button>
 
             <p id="note"></p>
         </div> <!-- Body -->
