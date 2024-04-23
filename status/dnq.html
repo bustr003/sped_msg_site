@@ -23,13 +23,13 @@
                     <a class="topnav" href="../add.html">Add</a>
                 </li>
                 <li class="topnav">
-                    <a class="topnav" href="../status.html">Status</a>
+                    <a class="topnav_active" href="../status.html">Status</a>
                 </li>
                 <li class="topnav">
                     <a class="topnav" href="../exit.html">Exit</a>
                 </li>
                 <li class="topnav">
-                    <a class="topnav_active" href="../other.html">Other</a>
+                    <a class="topnav" href="../other.html">Other</a>
                 </li>
             </ul>
         </div> <!-- Navigation Bar -->
@@ -46,6 +46,17 @@
             }
             
             function displayNote(){
+                const d = new Date();
+                let yyyy = d.getFullYear();
+                let mm = d.getMonth() + 1;
+                let dd = d.getDate();
+                let hour = d.getHours();
+                let minutes = d.getMinutes();
+                let seconds = d.getSeconds();
+                var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
+
+                var note = "Note from " + datetime + "<br>";
+
                 var lname = document.getElementById("lname").value.trim();
                 var fname = document.getElementById("fname").value.trim();
                 var requester = document.getElementById("requester").value.trim();
@@ -53,10 +64,13 @@
                 var req_type = "Change Status to DNQ/Not Providing Services";
                 var req_comment = document.getElementById("req_comment").value.trim();
 
+                /*
                 var note = "Note for ";
                 note += lname;
                 if(lname!="" && fname!=""){note+= ", ";}
                 note += fname;
+                */
+
                 note += "<br>" + requester + ", " + role + " requested: " + req_type;
                 if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
 
@@ -118,14 +132,14 @@
                 <label for="req_comment">Request Comment</label>
                 <textarea id="req_comment" rows=2 cols="50"></textarea>
 
-                <br><br>
                 <datalist id="req_status_list">
                     <option value="Request completed."></option>
                     <option value="Request partially completed."></option>
                     <option value="No action needed."></option>
                 </datalist>
-                <label for="req_status"><b>REQUEST STATUS</b></label>
-                <input list="req_status_list" for="req_status" id="req_status" value="">
+               
+                <br><br>
+                <b>PROCEDURES</b>
 
                 <br>
                 <datalist id="statement_list">
@@ -177,6 +191,10 @@
                 </datalist>
                 <label for="status_change">Status changed to</label>
                 <input list="status_change_list" for="status_change" id="status_change" value="">
+            
+                <br>
+                <label for="req_status"><b>REQUEST STATUS</b></label>
+                <input list="req_status_list" for="req_status" id="req_status" value="">
             </form>
 
             <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
