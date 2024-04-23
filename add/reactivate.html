@@ -46,18 +46,31 @@
             }
             
             function displayNote(){
+                const d = new Date();
+                let yyyy = d.getFullYear();
+                let mm = d.getMonth() + 1;
+                let dd = d.getDate();
+                let hour = d.getHours();
+                let minutes = d.getMinutes();
+                let seconds = d.getSeconds();
+                var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
+
+                var note = "Note from " + datetime + "<br>";
+                
                 var lname = document.getElementById("lname").value.trim();
                 var fname = document.getElementById("fname").value.trim();
                 var requester = document.getElementById("requester").value.trim();
                 var role = document.getElementById("role").value.trim();
                 var req_comment = document.getElementById("req_comment").value.trim();
 
+                /*
                 var note = "Note for ";
                 note += lname;
                 if(lname!="" && fname!=""){note+= ", ";}
                 note += fname;
                 note += "<br>" + requester + ", " + role + " requested: Add Student";
                 if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
+                */
 
                 var req_status = document.getElementById("req_status").value;
                 var ssid = document.getElementById("ssid").value;
@@ -115,6 +128,9 @@
                 if(record_status!=""){note += "<br>Status: " + record_status;}
                 if(guide!=""){note += "<br>View History guide " + guide;}
                 
+                var special_notes = document.getElementById("special_notes").value.trim();
+                note += "<br>" + special_notes;
+
                 return note;
             }
         </script>
@@ -157,8 +173,7 @@
                 </datalist>
 
                 <br><br>
-                <label for="req_status"><b>REQUEST STATUS</b></label>
-                <input list="req_status_list" id="req_status" value="">
+                <b>PROCEDURES</b>
 
                 <datalist id="id">
                     <option value="not found"></option>
@@ -284,6 +299,13 @@
                 <label for="guide">View History guide</label>
                 <input list="guide_list" id="guide" value="">
 
+                <br>
+                <label for="special_notes">Notes</label>
+                <textarea id="special_notes" rows=3 cols="50" placeholder="special notes..."></textarea>
+
+                <br><br>
+                <label for="req_status"><b>Request status</b></label>
+                <input list="req_status_list" role="req_status" id="req_status" value="">   
             </form>
 
             <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
