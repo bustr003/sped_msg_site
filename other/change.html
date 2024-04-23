@@ -46,6 +46,17 @@
             }
             
             function displayNote(){
+                const d = new Date();
+                let yyyy = d.getFullYear();
+                let mm = d.getMonth() + 1;
+                let dd = d.getDate();
+                let hour = d.getHours();
+                let minutes = d.getMinutes();
+                let seconds = d.getSeconds();
+                var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
+
+                var note = "Note from " + datetime + "<br>";
+
                 var lname = document.getElementById("lname").value.trim();
                 var fname = document.getElementById("fname").value.trim();
                 var requester = document.getElementById("requester").value.trim();
@@ -53,18 +64,21 @@
                 var req_type = document.getElementById("req_type").value.trim();
                 var req_comment = document.getElementById("req_comment").value.trim();
 
+                /*
                 var note = "Note for ";
                 note += lname;
                 if(lname!="" && fname!=""){note+= ", ";}
                 note += fname;
+                */
+
                 note += "<br>" + requester + ", " + role + " requested: " + req_type;
                 if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
 
                 var req_status = document.getElementById("req_status").value;
-                var notes = document.getElementById("notes").value.trim();
+                var special_notes = document.getElementById("special_notes").value.trim();
 
                 note += "<br><br>" + req_status;
-                note += "<br>" + notes;
+                note += "<br>" + special_notes;
                 
                 return note;
             }
@@ -120,12 +134,15 @@
                 </datalist>
 
                 <br><br>
-                <label for="req_status"><b>REQUEST STATUS</b></label>
-                <input list="req_status_list" for="req_status" id="req_status" value="">
+                <b>PROCEDURES</b>
 
                 <br>
-                <label for="notes">Notes</label>
-                <textarea id="notes" rows=3 cols="50"></textarea>
+                <label for="special_notes">Notes</label>
+                <textarea id="special_notes" rows=3 cols="50" placeholder="special notes..."></textarea>
+
+                <br><br>
+                <label for="req_status"><b>Request status</b></label>
+                <input list="req_status_list" role="req_status" id="req_status" value="">
             </form>
 
             <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
