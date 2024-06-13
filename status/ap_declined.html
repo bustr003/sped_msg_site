@@ -65,13 +65,6 @@
                 var req_type = "AP Declined";
                 var req_comment = document.getElementById("req_comment").value.trim();
 
-                /*
-                var note = "Note for ";
-                note += lname;
-                if(lname!="" && fname!=""){note+= ", ";}
-                note += fname;
-                */
-
                 note += "<br>" + requester + ", " + role + " requested: " + req_type;
                 if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
 
@@ -90,8 +83,8 @@
                 var meet = document.getElementById("meet").value.trim();
                 var plan = document.getElementById("plan").value.trim();
                 
-                note += "<br><br>SSID: ";
-                note += "<br>CALPADS txn: ";
+                note += "<br><br>SSID: " + ssid;
+                note += "<br>CALPADS txn: " + txn;
                 note += "<br>Parent consent for AP: " + ap_consent;
                 note += "<br>Meeting Type: " + meet;
                 note += "<br>Plan Type: " + plan;
