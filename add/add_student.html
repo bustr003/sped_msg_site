@@ -57,9 +57,7 @@
                 var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
 
                 var note = "Note from " + datetime + "<br>";
-                
-                var lname = document.getElementById("lname").value.trim();
-                var fname = document.getElementById("fname").value.trim();
+
                 var requester = document.getElementById("requester").value.trim();
                 var role = document.getElementById("role").value.trim();
                 var req_comment = document.getElementById("req_comment").value.trim();
@@ -132,12 +130,12 @@
 
         <div class="body">
             <form>
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" value="">
+                <label for="student_name">Student</label>
+                <input type="text" id="student_name" placeholder="optional" value="">
 
                 <br>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" value="">
+                <label for="student_id">ID</label>
+                <input type="text" id="student_id" placeholder="optional" value="">
 
                 <br>
                 <label for="requester">Requested by</label>

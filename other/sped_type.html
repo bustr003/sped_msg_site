@@ -50,15 +50,11 @@
             }
             
             function displayNote(){
-                var lname = document.getElementById("lname").value.trim();
-                var fname = document.getElementById("fname").value.trim();
+
+                var note = "Note from " + datetime + "<br>";
+
                 var sped_type = document.getElementById("sped_type").value;
                 var date = document.getElementById("date").value.trim();
-
-                var note = "Note for ";
-                note += lname;
-                if(lname!="" && fname!=""){note+= ", ";}
-                note += fname;
 
                 note += "<br><br>SpEd Type to " + sped_type;
                 note += " as of " + date;
@@ -69,12 +65,12 @@
 
         <div class="body">
             <form>
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" value="">
+                <label for="student_name">Student</label>
+                <input type="text" id="student_name" placeholder="optional" value="">
 
                 <br>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" value="">
+                <label for="student_id">ID</label>
+                <input type="text" id="student_id" placeholder="optional" value="">
 
                 <br>
                 <datalist id="sped_type_list">
