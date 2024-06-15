@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../mhea_sped.css">
+        <link rel="icon" type="image/x-icon" href="../images/bunny_face.ico">
+        <title>SpEd Message Builder</title>
+    </head>
+
+    <body class="blue">
+        <!-- Logo -->
+        <a href="../index.html">
+            <img src="../images/bunny_index.jpg" height="75">
+        </a>
+
+        <!-- Navigation Bar -->
+        <div align="left">
+            <ul class="topnav">
+                <li class="topnav">
+                    <a class="topnav" href="../index.html">Home</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav" href="../add.html">Add</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav" href="../status.html">Status</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav" href="../exit.html">Exit</a>
+                </li>
+                <li class="topnav">
+                    <a class="topnav_active" href="../other.html">Other</a>
+                </li>
+            </ul>
+        </div> <!-- Navigation Bar -->
+
+        <div class="header">
+            <h1 align="center">
+                <b>Email Drafts</b>
+            </h1>
+            <p><a class="body" href="email_drafts_help.html">Click here for help</a></p>
+            <br>
+            <button onclick="refresh()">Clear Fields</button>
+        </div> <!-- Header -->
+
+        <script>
+            function refresh(){
+                location.href = "email_drafts.html";
+            }
+            
+            function displayNote(){
+                var run_date = document.getElementById("date").value.trim();
+                var subject = document.getElementById("subject").value.trim();
+                var note = "";
+
+                note += "<br>" + run_date + " " + subject;
+
+                var block_1 = document.getElementById("block_1").value;
+                var block_2 = document.getElementById("block_2").value;
+                var block_3 = document.getElementById("block_3").value;
+                var block_4 = document.getElementById("block_4").value;
+
+                var data = document.getElementById("data").value;
+                var i = 7;
+                var count = 0;
+                var recipient = "";
+                var data_1 = "";
+                var data_2 = "";
+                var data_3 = "";
+                var data_4 = "";
+                var draft = "";
+                while(i < data.length-1){
+                    while(data[i] != ','){
+                        recipient += data[i];
+                        i += 1;
+                    }
+
+                    i += 1;
+                    while(data[i] != ','){
+                        data_1 += data[i];
+                        i += 1;
+                    }
+
+                    i += 1;
+                    while(data[i] != ','){
+                        data_2 += data[i];
+                        i += 1;
+                    }
+
+                    i += 1;
+                    while(data[i] != ','){
+                        data_3 += data[i];
+                        i += 1;
+                    }
+
+                    i += 1;
+                    while(data[i] != 'q' && i<=data.length-1){
+                        data_4 += data[i];
+                        i += 1;
+                    }
+
+                    count += 1;
+
+                    draft += "<br><br>" + count + "------------------<br>" + subject;
+                    draft += "<br>Dear " + recipient + ",<br><br>";
+
+                    draft += block_1 + data_1;
+                    draft += block_2 + data_2;
+                    draft += block_3 + data_3;
+                    draft += block_4 + data_4;
+
+                    note += draft;
+
+                    i += 7;
+                    recipient = "";
+                    data_1 = "";
+                    data_2 = "";
+                    data_3 = "";
+                    data_4 = "";
+                    draft = "";
+                } // read the data
+                
+                return note;
+            }
+        </script>
+
+        <div class="body">
+            <form>
+                <label for="date">Date</label>
+                <input type="text" id="date" value="">
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="email subject" value="">
+
+                <br>
+                Dear ____,
+
+                <br>
+                <label for="block_1">BLOCK 1</label>
+                <input type="text" id="block_1" placeholder="block_1" value="">
+                <br>
+                <input type="text" id="data_1" placeholder="data_1" value="">
+
+                <br>
+                <label for="block_1">BLOCK 2</label>
+                <input type="text" id="block_2" placeholder="block_2" value="">
+                <br>
+                <input type="text" id="data_2" placeholder="data_2" value="">
+
+                <br>
+                <label for="block_1">BLOCK 3</label>
+                <input type="text" id="block_3" placeholder="block_3" value="">
+                <br>
+                <input type="text" id="data_3" placeholder="data_3" value="">
+
+                <br>
+                <label for="block_1">BLOCK 4</label>
+                <input type="text" id="block_4" placeholder="block_4" value="">
+                <br>
+                <input type="text" id="data_4" placeholder="data_4" value="">
+
+                <br>
+                <textarea id="data" rows=10 cols="50" placeholder="data... col1 must say qwerty" value=""></textarea>
+            </form>
+
+            <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
+
+            <p id="note"></p>
+        </div> <!-- Body -->
+    </body>
+</html>
