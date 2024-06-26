@@ -102,6 +102,9 @@
                 if(SOR!=""){note += "<br>School of Residence: " + SOR.toUpperCase();}
                 if(SOA!=""){note += "<br>School of Attendance: " + SOA.toUpperCase();}
 
+                var special_notes = document.getElementById("special_notes").value.trim();
+                note += "<br>" + special_notes;
+
                 note += "<br><br>SEIS RECORD RE-ACTIVATED"
                 var sped_type = document.getElementById("sped_type").value;
                 var demographics = document.getElementById("demographics").value;
@@ -120,9 +123,6 @@
                 if(meet_plan!=""){note += "<br>Meeting Type/Plan Type: " + meet_plan;}
                 if(record_status!=""){note += "<br>Status: " + record_status;}
                 if(guide!=""){note += "<br>View History guide " + guide;}
-                
-                var special_notes = document.getElementById("special_notes").value.trim();
-                note += "<br>" + special_notes;
 
                 return note;
             }
@@ -239,15 +239,17 @@
                 <label for="SOA">School of Attendance</label>
                 <input type="text" id="SOA" value="">
 
-                <br>
+                <br><br>
+                <label for="special_notes">Notes</label>
+                <textarea id="special_notes" rows=3 cols="50" placeholder="special notes..."></textarea>
 
+                <br><br>
+                <label for="guide">RE-ACTIVATE SEIS RECORD</label>
+
+                <br>
                 <datalist id="sped_type_list">
                     <option value="blank"></option>
                 </datalist>
-
-                <br>
-                <label for="guide">RE-ACTIVATE SEIS RECORD</label>
-                <br>
                 <label for="sped_type">SpEd Type</label>
                 <input list="sped_type_list" id="sped_type" value="">
 
@@ -293,10 +295,6 @@
                 <br>
                 <label for="guide">View History guide</label>
                 <input list="guide_list" id="guide" value="">
-
-                <br><br>
-                <label for="special_notes">Notes</label>
-                <textarea id="special_notes" rows=3 cols="50" placeholder="special notes..."></textarea>
 
                 <br><br>
                 <label for="req_status"><b>Request status</b></label>

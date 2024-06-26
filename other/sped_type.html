@@ -50,13 +50,21 @@
             }
             
             function displayNote(){
+                const d = new Date();
+                let yyyy = d.getFullYear();
+                let mm = d.getMonth() + 1;
+                let dd = d.getDate();
+                let hour = d.getHours();
+                let minutes = d.getMinutes();
+                let seconds = d.getSeconds();
+                var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
 
                 var note = "Note from " + datetime + "<br>";
 
                 var sped_type = document.getElementById("sped_type").value;
                 var date = document.getElementById("date").value.trim();
 
-                note += "<br><br>SpEd Type to " + sped_type;
+                note += "<br>SpEd Type to " + sped_type;
                 note += " as of " + date;
                 
                 return note;
