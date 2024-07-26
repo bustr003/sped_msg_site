@@ -36,14 +36,14 @@
 
         <div class="header">
             <h1 align="center">
-                <b>Exit 79 Withdrawal - WITH Written Revocation</b>
+                <b>Exit 80 Withdrawal - WITHOUT Written Revocation of Consent</b>
             </h1>
             <button onclick="refresh()">Clear Fields</button>
         </div> <!-- Header -->
 
         <script>
             function refresh(){
-                location.href = "79.html";
+                location.href = "80.html";
             }
             
             function displayNote(){
@@ -60,7 +60,7 @@
 
                 var requester = document.getElementById("requester").value.trim();
                 var role = document.getElementById("role").value.trim();
-                var req_type = "Exit 79 Withdrawal - WITH Written Revocation";
+                var req_type = "Exit 80 Withdrawal - WITHOUT Written Revocation of Consent";
                 var req_comment = document.getElementById("req_comment").value.trim();
 
                 note += "<br>" + requester + ", " + role + " requested: " + req_type;
@@ -69,11 +69,8 @@
                 var req_status = document.getElementById("req_status").value;
                 note += "<br><br>" + req_status;
 
-                var file_details = document.getElementById("file").value;
-                note += "<br>ATTACHMENT IN SEIS<br>" + file_details;
-
                 var date = document.getElementById("exit_date").value;
-                note += "<br><br>Parent revoked consent on " + date;
+                note += "<br><br>Exit date: " + date;
 
                 var senr = document.getElementById("senr").value.trim();
                 if(senr!="n/a"){note += "<br><br>Non-ADA: " + senr;}
@@ -125,12 +122,8 @@
                 <br><br>
                 <b>PROCEDURES</b>
 
-                <br>
-                <label for="file">ATTACHMENT IN SEIS</label>
-                <textarea id="file" rows=2 cols="50" placeholder="filename & location..." value=""></textarea>
-
                 <br><br>
-                <label for="exit_date">Parent revoked consent on</label>
+                <label for="exit_date">Exit Date</label>
                 <input type="text" id="exit_date" value="">
 
                 <br>
