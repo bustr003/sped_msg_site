@@ -89,7 +89,7 @@
                 if(iep_team_access=="n/a" && iep_team_note!=""){note += "<br>" + "IEP Team access";}
                 if(iep_team_note!=""){note += " - " + iep_team_note;}
 
-                note += "<br>";
+                note += "<br>ENROLLMENT INFO";
                 var enroll_start = document.getElementById("enroll_start").value;
                 var grade = document.getElementById("grade").value;
                 var mname = document.getElementById("mname").value;
@@ -103,7 +103,7 @@
                 if(SOA!=""){note += "<br>School of Attendance: " + SOA.toUpperCase();}
 
                 var special_notes = document.getElementById("special_notes").value.trim();
-                note += "<br><br>" + special_notes;
+                if(special_notes!=""){note += "<br><br>" + special_notes;}
 
                 note += "<br><br>SEIS RECORD RE-ACTIVATED"
                 var sped_type = document.getElementById("sped_type").value;
@@ -123,6 +123,15 @@
                 if(meet_plan!=""){note += "<br>Meeting Type/Plan Type: " + meet_plan;}
                 if(record_status!=""){note += "<br>Status: " + record_status;}
                 if(guide!=""){note += "<br>View History guide " + guide;}
+
+                note += "<br><br>NEW INITIAL EVAL"
+                var services_status = document.getElementById("services_status").value;
+                var goals_status = document.getElementById("goals_status").value;
+                var ie_status = document.getElementById("ie_status").value;
+
+                if(services_status!=""){note += "<br>Services " + services_status;}
+                if(goals_status!=""){note += "<br>Goals " + goals_status;}
+                if(ie_status!=""){note += "<br>Info/Eligibility Form " + ie_status;}
 
                 return note;
             }
@@ -282,6 +291,7 @@
 
                 <datalist id="status_list">
                     <option value="Pending"></option>
+                    <option value="Eligible"></option>
                 </datalist>
 
                 <br>
@@ -297,8 +307,35 @@
                 <input list="guide_list" id="guide" value="">
 
                 <br><br>
+                <label for="guide">NEW INITIAL EVAL</label>
+
+                <datalist id="services_list">
+                    <option value="Discontinued & Deleted"></option>
+                </datalist>
+
+                <br>
+                <label for="services_status">Services</label>
+                <input list="services_list" id="services_status" value="">
+
+                <datalist id="goals_list">
+                    <option value="Deleted"></option>
+                </datalist>
+
+                <br>
+                <label for="goals_status">Goals</label>
+                <input list="goals_list" id="goals_status" value="">
+
+                <datalist id="ie_list">
+                    <option value="Updated"></option>
+                </datalist>
+
+                <br>
+                <label for="ie_status">Info/Eligibility Form</label>
+                <input list="ie_list" id="ie_status" value="">
+
+                <br><br>
                 <label for="req_status"><b>Request status</b></label>
-                <input list="req_status_list" role="req_status" id="req_status" value="">   
+                <input list="req_status_list" role="req_status" id="req_status" value="">
             </form>
 
             <button onclick="document.getElementById('note').innerHTML=displayNote();">Display Note</button>
