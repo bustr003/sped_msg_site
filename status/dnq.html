@@ -69,17 +69,20 @@
                 var req_status = document.getElementById("req_status").value;
                 var sig_statement = document.getElementById("sig_statement").value.trim();
                 var sig_date = document.getElementById("sig_date").value.trim();
+                var meeting_date = document.getElementById("meeting_date").value.trim();
                 var special_notes = document.getElementById("special_notes").value.trim();
                 
                 note += "<br><br>" + req_status;
-                note += "<br>Parent signed on " + sig_date;
-                if(special_notes!=""){note += "<br>" + special_notes;}
+                note += "<br>IEP held on " + meeting_date + ", Parent signed \"" + sig_statement + "\" on " + sig_date + ".";
+                if(special_notes!=""){note += "<br><br>" + special_notes;}
 
+                var initial_section = document.getElementById("initial_section").value.trim();
                 var ap_consent = document.getElementById("ap_consent").value.trim();
                 var meet = document.getElementById("meet").value.trim();
                 var plan = document.getElementById("plan").value.trim();
 
-                note += "<br><br>Parent consent for AP: " + ap_consent;
+                note += "<br><br>Initial Placement section " + initial_section;
+                note += "<br>Parent consent for AP: " + ap_consent;
                 note += "<br>Meeting Type: " + meet;
                 note += "<br>Plan Type: " + plan;
 
@@ -136,7 +139,7 @@
                 <br>
                 <datalist id="statement_list">
                     <option value="not eligible"></option>
-                    <option value="decline the initiation of services"></option>
+                    <option value="I decline the offer of initiation of special education services"></option>
                     <option value="parentally placed in private school"></option>
                 </datalist>
                 <label for="sig_statement">Parent sig statement </label>
@@ -147,11 +150,22 @@
                 <input type="text" id="sig_date" value="">
 
                 <br>
+                <label for="meeting_date">IEP Meeting date</label>
+                <input type="text" id="meeting_date" value="">
+
+                <br><br>
                 <textarea id="special_notes" rows=2 cols="50" placeholder="special notes..." value=""></textarea>
 
                 <br><br>
+                <datalist id="init_list">
+                    <option value="completed"></option>
+                </datalist>
+                <label for="initial_section">Initial Placement Section</label>
+                <input list="init_list" id="initial_section" value="">
+
+                <br>
                 <label for="ap_consent">AP Consent Date</label>
-                <input list="blank_list" for="ap_consent" id="ap_consent" value="">
+                <input type="text" id="ap_consent" value="">
 
                 <br>
                 <datalist id="meet_list">
