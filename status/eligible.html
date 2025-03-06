@@ -84,8 +84,7 @@
                 var gen_ed = document.getElementById("gen_ed").value.trim();
                 
                 note += "<br>";
-                if(sped_type_update=="to do"){note += sped_type_update + ": update ";}
-                note += "SpEd Type to " + sped_type + " as of " + sped_type_date;
+                note += sped_type_update + " " + sped_type + " as of " + sped_type_date;
                 note += "<br>% in regular class: " + gen_ed;
 
                 var pk_progset = document.getElementById("pk_progset").value.trim();
@@ -205,10 +204,10 @@
                 <!-- SPED TYPE -->
                 <br><br>
                 <datalist id="sped_type_update_list">
-                    <option value="to do"></option>
-                    <option value="done"></option>
+                    <option value="to do: SpEd Type"></option>
+                    <option value="SpEd Type"></option>
                 </datalist>
-                <label for="sped_type_update">SpEd Type update</label>
+                <label for="sped_type_update">Select one: </label>
                 <input list="sped_type_update_list" id="sped_type_update" value="">
 
                 <br>
@@ -219,7 +218,7 @@
                     <option value="DIS"></option>
                 </datalist>
                 <a class="body" href="https://docs.google.com/document/d/1OnujKWmvy8YZjVinyp3n86VmYV67vIqtgF2usSIw5wI/edit?usp=sharing">
-                    SpEd Type</a>
+                    select one</a>
                 <input list="sped_type_list" id="sped_type" value="">
 
                 <br>
