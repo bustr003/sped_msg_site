@@ -70,15 +70,20 @@
                 note += "<br><br>" + req_status;
 
                 var RE = document.getElementById("RE").value;
-                note += "<br>Reevaluation held: " + RE;
-
+                var PR = document.getElementById("PR").value;
+                var exit_box = document.getElementById("exit_box").value;
                 var date = document.getElementById("date").value;
-                note += "<br>Parent signed on " + date;
-
                 var senr = document.getElementById("senr").value.trim();
+                var special_notes = document.getElementById("special_notes").value.trim();
+
+                note += "<br>Reevaluation held: " + RE;
+                note += "<br>Timely Plan Review: " + PR;
+                note += "<br>Affirmed as \"Exiting Special Ed\": " + exit_box;
+
+                note += "<br><br>Exit Date: Parent signed on " + date;
+
                 if(senr!="n/a"){note += "<br><br>Non-ADA: " + senr;}
                 
-                var special_notes = document.getElementById("special_notes").value.trim();
                 if(special_notes!=""){note += "<br>" + special_notes;}
 
                 return note;
@@ -141,7 +146,7 @@
                 <label for="exit_box">Affirmed as "Exiting Special Ed"</label>
                 <input list="yn_list" id="exit_box" value="">
 
-                <br>
+                <br><br>
                 <label for="date">Exit Date: Parent signed on </label>
                 <input type="text" id="date" value="">
 
