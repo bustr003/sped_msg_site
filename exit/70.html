@@ -69,8 +69,8 @@
                 var req_status = document.getElementById("req_status").value;
                 note += "<br><br>" + req_status;
 
-                var statement = document.getElementById("statement").value;
-                if(statement=="Yes"){note += "<br>IEP says \"No longer eligible.\"";}
+                var RE = document.getElementById("RE").value;
+                note += "<br>Reevaluation held: " + RE;
 
                 var date = document.getElementById("date").value;
                 note += "<br>Parent signed on " + date;
