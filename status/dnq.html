@@ -73,7 +73,8 @@
                 var special_notes = document.getElementById("special_notes").value.trim();
                 
                 note += "<br><br>" + req_status;
-                note += "<br>IEP held on " + meeting_date + ", Parent signed \"" + sig_statement + "\" on " + sig_date + ".";
+                if(sig_statement!=""){note += "<br>IEP held on " + meeting_date + ", Parent signed \"" + sig_statement + "\" on " + sig_date + ".";}
+                    else{note += "<br>IEP held on " + meeting_date + ", Parent signed on " + sig_date + ".";}
                 if(special_notes!=""){note += "<br><br>" + special_notes;}
 
                 var initial_section = document.getElementById("initial_section").value.trim();
