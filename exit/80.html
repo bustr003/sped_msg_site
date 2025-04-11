@@ -69,6 +69,9 @@
                 var req_status = document.getElementById("req_status").value;
                 note += "<br><br>" + req_status;
 
+                var age = document.getElementById("age").value;
+                note += "<br><br>Age: " + age;
+
                 var date = document.getElementById("exit_date").value;
                 note += "<br><br>Exit date: " + date;
 
@@ -121,6 +124,14 @@
 
                 <br><br>
                 <b>PROCEDURES</b>
+
+                <br><br>
+                <datalist id="age_list">
+                    <option value="3 years or older - proceed with the Exit"></option>
+                    <option value="less than 3 years - check with Yolanda"></option>
+                </datalist>
+                <label for="age">Age</label>
+                <input list="age_list" id="age" value="">
 
                 <br><br>
                 <label for="exit_date">Exit Date</label>
