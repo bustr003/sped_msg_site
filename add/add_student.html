@@ -107,7 +107,8 @@
                 var special_notes = document.getElementById("special_notes").value.trim();
                 if(special_notes!=""){note += "<br><br>" + special_notes;}
 
-                note += "<br><br>SEIS RECORD RE-ACTIVATED"
+                var cleanup_type = document.getElementById("cleanup_type").value;
+                if(cleanup_type!=""){note += "<br>SEIS RECORD: " + cleanup_type.toUpperCase();}
                 var sped_type = document.getElementById("sped_type").value;
                 var demographics = document.getElementById("demographics").value;
                 var school_page = document.getElementById("school_page").value;
@@ -264,6 +265,14 @@
 
                 <br><br>
                 <label for="guide">SEIS RECORD RE-ACTIVATED OR TRANSFERRED IN</label>
+
+                <br>
+                <label for="req_type">CLEANUP: SEIS RECORD </label>
+                <input list="cleanup_type_list" for="cleanup_type" id="cleanup_type" value="">
+                <datalist id="cleanup_type_list">
+                    <option value="Re-activated"></option>
+                    <option value="Transferred in"></option>
+                </datalist>
 
                 <br>
                 <datalist id="sped_type_list">
