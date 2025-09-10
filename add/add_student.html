@@ -108,7 +108,7 @@
                 if(special_notes!=""){note += "<br><br>" + special_notes;}
 
                 var cleanup_type = document.getElementById("cleanup_type").value;
-                if(cleanup_type!=""){note += "<br>SEIS RECORD: " + cleanup_type.toUpperCase();}
+                if(cleanup_type!=""){note += "<br><br>SEIS RECORD: " + cleanup_type.toUpperCase();}
                 var sped_type = document.getElementById("sped_type").value;
                 var demographics = document.getElementById("demographics").value;
                 var school_page = document.getElementById("school_page").value;
@@ -209,9 +209,13 @@
                 <input list="id" id="district_id" value="">
 
                 <br>
-                <label for="third_bday">3rd birthday</label>
-                <input type="text" id="third_bday" value="">
-                <br><i>*If preschool-age and the IEP will be held after the 3rd birthday, add Meeting Delay Code 25.</i>
+                <label for="req_type">3 years old?</label>
+                <input list="third_bday_list" for="third_bday" id="third_bday" value="">
+                <datalist id="third_bday_list">
+                    <option value="No"></option>
+                    <option value="Yes"></option>
+                </datalist>
+                <br><i>*3 years old and Initial Evaluation has not been held --> Meeting Delay Code 20.</i>
 
                 <br>
 
@@ -264,9 +268,6 @@
                 <textarea id="special_notes" rows=3 cols="50" placeholder="special notes..."></textarea>
 
                 <br><br>
-                <label for="guide">SEIS RECORD RE-ACTIVATED OR TRANSFERRED IN</label>
-
-                <br>
                 <label for="req_type">CLEANUP: SEIS RECORD </label>
                 <input list="cleanup_type_list" for="cleanup_type" id="cleanup_type" value="">
                 <datalist id="cleanup_type_list">
