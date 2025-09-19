@@ -77,7 +77,7 @@
                 if(seis_id!=""){note += "<br>" + "SEIS ID: " + seis_id;}
                 if(dnr!="dnr n/a"){note += "<br>- " + dnr;}
                 if(district_id!=""){note += "<br>" + "District ID: " + district_id;}
-                if(third_bday!=""){note += "<br>" + "3rd birthday " + third_bday;}
+                if(third_bday!=""){note += "<br>" + "3 years old? " + third_bday;}
 
                 var psych_access = document.getElementById("psych_access").value;
                 var psych_access_note = document.getElementById("psych_access_note").value.trim();
@@ -91,7 +91,6 @@
                 if(iep_team_access=="n/a" && iep_team_note!=""){note += "<br>" + "IEP Team access";}
                 if(iep_team_note!=""){note += " - " + iep_team_note;}
 
-                note += "<br>ENROLLMENT INFO";
                 var enroll_start = document.getElementById("enroll_start").value;
                 var grade = document.getElementById("grade").value;
                 var mname = document.getElementById("mname").value;
@@ -108,7 +107,6 @@
                 if(special_notes!=""){note += "<br><br>" + special_notes;}
 
                 var cleanup_type = document.getElementById("cleanup_type").value;
-                if(cleanup_type!=""){note += "<br><br>SEIS RECORD: " + cleanup_type.toUpperCase();}
                 var sped_type = document.getElementById("sped_type").value;
                 var demographics = document.getElementById("demographics").value;
                 var school_page = document.getElementById("school_page").value;
@@ -116,9 +114,11 @@
                 var calpads_page = document.getElementById("calpads_page").value;
                 var meet_plan = document.getElementById("meet_plan").value;
                 var prog_set = document.getElementById("prog_set").value;
+                var SWDS_type = document.getElementById("SWDS_type").value;
                 var record_status = document.getElementById("record_status").value;
                 var guide = document.getElementById("guide").value;
 
+                if(cleanup_type!=""){note += "<br><br>SEIS RECORD: " + cleanup_type.toUpperCase();}
                 if(sped_type!=""){note += "<br>SpEd Type " + sped_type;}
                 if(demographics!=""){note += "<br>Demographics page " + demographics;}
                 if(school_page!=""){note += "<br>School page " + school_page;}
@@ -126,14 +126,16 @@
                 if(calpads_page!=""){note += "<br>CALPADS page " + calpads_page;}
                 if(meet_plan!=""){note += "<br>Meeting Type/Plan Type: " + meet_plan;}
                 if(prog_set!=""){note += "<br>Program Setting: " + prog_set;}
+                if(SWDS_type!=""){note += "<br>New SWDS needed for CALPADS? " + SWDS_type;}
                 if(record_status!=""){note += "<br>Status: " + record_status;}
                 if(guide!=""){note += "<br>View History guide " + guide;}
 
-                note += "<br><br>NEW INITIAL EVAL"
+                var new_initial_type = document.getElementById("new_initial_type").value;
                 var services_status = document.getElementById("services_status").value;
                 var goals_status = document.getElementById("goals_status").value;
                 var ie_status = document.getElementById("ie_status").value;
 
+                if(new_initial_type=="Yes"){note += "<br><br>NEW INITIAL EVAL";}
                 if(services_status!=""){note += "<br>Services " + services_status;}
                 if(goals_status!=""){note += "<br>Goals " + goals_status;}
                 if(ie_status!=""){note += "<br>Info/Eligibility Form " + ie_status;}
@@ -215,7 +217,7 @@
                     <option value="No"></option>
                     <option value="Yes"></option>
                 </datalist>
-                <br><i>*3 years old and Initial Evaluation has not been held --> Meeting Delay Code 20.</i>
+                <br><i>*3 years old and Initial Evaluation has not been held --> Meeting Delay Code 20</i>
 
                 <br>
 
@@ -236,7 +238,7 @@
                 </select>
                 <input type="text" id="iep_team_note">
 
-                <br>
+                <br><br>ENROLLMENT INFO
 
                 <br>
                 <label for="enroll_start">Enrollment Start</label>
@@ -318,9 +320,19 @@
                     <option value="Eligible"></option>
                 </datalist>
 
+
+                <br>
+                <label for="SWDS_type">New SWDS needed for CALPADS?</label>
+                <input list="SWDS_type_list" for="SWDS_type" id="SWDS_type" value="">
+                <datalist id="SWDS_type_list">
+                    <option value="No"></option>
+                    <option value="Yes"></option>
+                </datalist>
+
                 <br>
                 <label for="record_status">Record Status</label>
                 <input list="status_list" id="record_status" value="">
+                
 
                 <datalist id="guide_list">
                     <option value="sent to requester"></option>
@@ -331,7 +343,12 @@
                 <input list="guide_list" id="guide" value="">
 
                 <br><br>
-                <label for="guide">NEW INITIAL EVAL</label>
+                <label for="new_initial_type">NEW INITIAL EVAL</label>
+                <input list="new_initial_type_list" for="new_initial_type" id="new_initial_type" value="">
+                <datalist id="new_initial_type_list">
+                    <option value="No"></option>
+                    <option value="Yes"></option>
+                </datalist>
 
                 <datalist id="services_list">
                     <option value="Discontinued & Deleted"></option>
