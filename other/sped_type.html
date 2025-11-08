@@ -59,13 +59,27 @@
                 let seconds = d.getSeconds();
                 var datetime = yyyy + "." + mm + "." + dd + ", " + hour + ":" + minutes + ":" + seconds;
 
-                var note = "Note from " + datetime + "<br>";
+                var note = "Note from " + datetime + "<br><br>";
 
+                var student_name = document.getElementById("student_name").value.trim();
+                var student_id = document.getElementById("student_id").value.trim();
                 var sped_type = document.getElementById("sped_type").value;
                 var date = document.getElementById("date").value.trim();
 
+                note += student_name + " " + student_id;
                 note += "<br>SpEd Type to " + sped_type;
                 note += " as of " + date;
+
+                // Clear fields
+                const student_name_text = document.getElementById('student_name');
+                const student_id_text = document.getElementById('student_id');
+                const sped_type_text = document.getElementById('sped_type');
+                const date_text = document.getElementById('date');
+
+                student_name_text.value = '';
+                student_id_text.value = '';
+                sped_type_text.value = '';
+                date_text.value = '';
                 
                 return note;
             }
