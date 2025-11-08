@@ -134,11 +134,13 @@
                 var services_status = document.getElementById("services_status").value;
                 var goals_status = document.getElementById("goals_status").value;
                 var ie_status = document.getElementById("ie_status").value;
+                var mtg_notes_status = document.getElementById("mtg_notes_status").value;
 
                 if(new_initial_type=="Yes"){note += "<br><br>NEW INITIAL EVAL";}
                 if(services_status!=""){note += "<br>Services " + services_status;}
                 if(goals_status!=""){note += "<br>Goals " + goals_status;}
                 if(ie_status!=""){note += "<br>Info/Eligibility Form " + ie_status;}
+                if(mtg_notes_status!=""){note += "<br>Historical Notes Form " + mtg_notes_status;}
 
                 return note;
             }
@@ -337,7 +339,6 @@
                 <datalist id="guide_list">
                     <option value="sent to requester"></option>
                 </datalist>
-
                 <br>
                 <label for="guide">View History guide</label>
                 <input list="guide_list" id="guide" value="">
@@ -351,28 +352,32 @@
                 </datalist>
 
                 <datalist id="services_list">
-                    <option value="Discontinued & Deleted"></option>
+                    <option value="discontinued & deleted"></option>
                 </datalist>
-
                 <br>
                 <label for="services_status">Services</label>
                 <input list="services_list" id="services_status" value="">
 
                 <datalist id="goals_list">
-                    <option value="Deleted"></option>
+                    <option value="deleted"></option>
                 </datalist>
-
                 <br>
                 <label for="goals_status">Goals</label>
                 <input list="goals_list" id="goals_status" value="">
 
                 <datalist id="ie_list">
-                    <option value="Updated"></option>
+                    <option value="updated"></option>
                 </datalist>
-
                 <br>
                 <label for="ie_status">Info/Eligibility Form</label>
                 <input list="ie_list" id="ie_status" value="">
+
+                <datalist id="mtg_notes_list">
+                    <option value="cleared from Future IEP"></option>
+                </datalist>
+                <br>
+                <label for="mtg_notes_status">Notes Form</label>
+                <input list="mtg_notes_list" id="mtg_notes_status" value="">
 
                 <br><br>
                 <label for="req_status"><b>Request status</b></label>
