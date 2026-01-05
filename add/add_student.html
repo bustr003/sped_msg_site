@@ -79,6 +79,9 @@
                 if(district_id!=""){note += "<br>" + "District ID: " + district_id;}
                 if(third_bday!=""){note += "<br>" + "3 years old? " + third_bday;}
 
+                var add_date = document.getElementById("add_date").value;
+                note += "<br><br>Date Added/Reactivated - " + add_date + "<br>";
+                
                 var psych_access = document.getElementById("psych_access").value;
                 var psych_access_note = document.getElementById("psych_access_note").value.trim();
                 if(psych_access!="n/a"){note += "<br>" + psych_access;}
@@ -224,6 +227,15 @@
                 <br>
 
                 <br>
+                <label>Date Added/Reactivated </label>
+                <select id="add_date">
+                    <option value="NEED TO POPULATE IN SEIS">NEED TO POPULATE IN SEIS</option>
+                    <option value="populated">populated</option>
+                </select>
+
+                <br>
+
+                <br>
                 <label>Psych access</label>
                 <select id="psych_access">
                     <option value="n/a">n/a</option>
@@ -249,7 +261,7 @@
                 <br>
                 <label for="grade">Grade</label>
                 <input type="text" id="grade" value="">
-                <br><i>*If 8th grade, add SEIS EUHSD as a provider.</i>
+                <br><i>*If 8th grade, add the 5 SEIS EUHSD providers.</i>
 
                 <br>
                 <datalist id="mname_list">
@@ -389,4 +401,5 @@
             <p id="note"></p>
         </div> <!-- Body -->
     </body>
+
 </html>
