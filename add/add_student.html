@@ -138,12 +138,14 @@
                 var goals_status = document.getElementById("goals_status").value;
                 var ie_status = document.getElementById("ie_status").value;
                 var mtg_notes_status = document.getElementById("mtg_notes_status").value;
+                var ap_status = document.getElementById("ap_status").value;
 
-                if(new_initial_type=="Yes"){note += "<br><br>NEW INITIAL EVAL";}
-                if(services_status!=""){note += "<br>Services " + services_status;}
-                if(goals_status!=""){note += "<br>Goals " + goals_status;}
-                if(ie_status!=""){note += "<br>Info/Eligibility Form " + ie_status;}
-                if(mtg_notes_status!=""){note += "<br>Historical Notes Form " + mtg_notes_status;}
+                if(new_initial_type=="Yes"){note += "<br><br>NEW INITIAL EVAL - clean-up";}
+                if(services_status!=""){note += "<br>Services: " + services_status;}
+                if(goals_status!=""){note += "<br>Goals: " + goals_status;}
+                if(ie_status!=""){note += "<br>Info/Eligibility Form: " + ie_status;}
+                if(mtg_notes_status!=""){note += "<br>Notes Form: " + mtg_notes_status;}
+                if(ap_status!=""){note += "<br>Assessment Plan: " + mtg_notes_status;}
 
                 return note;
             }
@@ -364,7 +366,8 @@
                 </datalist>
 
                 <datalist id="services_list">
-                    <option value="discontinued & deleted"></option>
+                    <option value="discontinued & deleted, form cleared"></option>
+                    <option value="nothing to clear"></option>
                 </datalist>
                 <br>
                 <label for="services_status">Services</label>
@@ -372,6 +375,8 @@
 
                 <datalist id="goals_list">
                     <option value="deleted"></option>
+                    <option value="deleted an empty goal"></option>
+                    <option value="nothing to clear"></option>
                 </datalist>
                 <br>
                 <label for="goals_status">Goals</label>
@@ -385,11 +390,20 @@
                 <input list="ie_list" id="ie_status" value="">
 
                 <datalist id="mtg_notes_list">
-                    <option value="cleared from Future IEP"></option>
+                    <option value="cleared"></option>
+                    <option value="nothing to clear"></option>
                 </datalist>
                 <br>
                 <label for="mtg_notes_status">Notes Form</label>
                 <input list="mtg_notes_list" id="mtg_notes_status" value="">
+
+                <datalist id="ap_list">
+                    <option value="cleared"></option>
+                    <option value="nothing to clear"></option>
+                </datalist>
+                <br>
+                <label for="ap_status">Assessment Plan</label>
+                <input list="ap_list" id="ap_status" value="">
 
                 <br><br>
                 <label for="req_status"><b>Request status</b></label>

@@ -70,21 +70,25 @@
                 var sig = document.getElementById("sig").value.trim();
                 var ap_consent = document.getElementById("ap_consent").value.trim();
                 var meet = document.getElementById("meet").value.trim();
+                var reeval = document.getElementById("reeval").value.trim();
                 var plan = document.getElementById("plan").value.trim();
                 
                 note += "<br><br>" + req_status;
                 note += "<br>Parent signed IEP on " + sig;
                 note += "<br>Parent consent for AP: " + ap_consent;
                 note += "<br>Meeting Type: " + meet;
+                note += "<br>Last Reevaluation: " + reeval;
                 note += "<br>Plan Type: " + plan;
 
                 var sped_type_update = document.getElementById("sped_type_update").value.trim();
                 var sped_type = document.getElementById("sped_type").value.trim();
                 var sped_type_date = document.getElementById("sped_type_date").value.trim();
+                var speech = document.getElementById("speech").value.trim();
                 var gen_ed = document.getElementById("gen_ed").value.trim();
                 
-                note += "<br>";
+                note += "<br><br>";
                 note += sped_type_update + " " + sped_type + " as of " + sped_type_date;
+                note += "<br>Speech custom field " + speech;
                 note += "<br>% in regular class: " + gen_ed;
 
                 var pk_progset = document.getElementById("pk_progset").value.trim();
@@ -169,11 +173,6 @@
                 <br><br>
                 <b>PROCEDURES</b>
 
-                <datalist id="cxn_list">
-                    <option value="correction needed"></option>
-                    <option value="cxn not needed"></option>
-                </datalist>
-
                 <br>
                 <label for="sig">Parent signed IEP on </label>
                 <input type="text" id="sig" value="">
@@ -193,10 +192,19 @@
                 <input list="meet_list" id="meet" value="">
 
                 <br>
+                <datalist id="reeval_list">
+                    <option value="populated"></option>
+                    <option value="blank - asked requester to populate"></option>
+                </datalist>
+                <label for="reeval">Last Reevaluation</label>
+                <input list="reeval_list" for="reeval" id="reeval" value="">
+
+                <br>
                 <datalist id="plan_list">
                     <option value="IEP"></option>
                     <option value="ISP"></option>
                     <option value="Pending - needs correction"></option>
+                    <option value="Pending - needs to be IEP"></option>
                 </datalist>
                 <label for="plan">Plan Type</label>
                 <input list="plan_list" for="plan" id="plan" value="">
@@ -225,6 +233,14 @@
                 <label for="sped_type_date">as of</label>
                 <input type="text" id="sped_type_date" value="">
 
+                <br>
+                <datalist id="speech_list">
+                    <option value="populated as &quot;Yes&quot;"></option>
+                    <option value="populated as &quot;No&quot;"></option>
+                </datalist>
+                <label for="speech">Speech custom field</label>
+                <input list="speech_list" for="speech" id="speech" value="">
+
                 <!-- % IN REGULAR CLASS -->
                 <br>
                 <datalist id="gen_ed_list">
@@ -235,6 +251,11 @@
                 <input list="gen_ed_list" for="gen_ed" id="gen_ed" value="">
 
                 <!-- PK PROGRAM SETTING -->
+                <datalist id="cxn_list">
+                    <option value="correction needed"></option>
+                    <option value="cxn not needed"></option>
+                </datalist>
+
                 <br><br>
                 <a class="body" href="https://docs.google.com/spreadsheets/d/1DnOeiV15E0VJZhaC3tvJqZFDp5jQv640A_zU_ShBBvw/edit?usp=sharing">
                     <b>PK Program Setting</b></a>
