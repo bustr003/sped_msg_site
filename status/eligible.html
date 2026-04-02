@@ -83,12 +83,14 @@
                 var sped_type_update = document.getElementById("sped_type_update").value.trim();
                 var sped_type = document.getElementById("sped_type").value.trim();
                 var sped_type_date = document.getElementById("sped_type_date").value.trim();
+                var speech = document.getElementById("walk-in").value.trim();
                 var speech = document.getElementById("speech").value.trim();
                 var gen_ed = document.getElementById("gen_ed").value.trim();
                 
                 note += "<br><br>";
                 note += sped_type_update + " " + sped_type + " as of " + sped_type_date;
-                note += "<br>Speech custom field " + speech;
+                note += "<br>walk-in indicator: " + speech;
+                note += "<br>Speech custom field: " + speech;
                 note += "<br>% in regular class: " + gen_ed;
 
                 var pk_progset = document.getElementById("pk_progset").value.trim();
@@ -194,6 +196,7 @@
                 <br>
                 <datalist id="reeval_list">
                     <option value="populated"></option>
+                    <option value="populated by Mhea, notified requester"></option>
                     <option value="blank - asked requester to populate"></option>
                 </datalist>
                 <label for="reeval">Last Reevaluation</label>
@@ -233,11 +236,20 @@
                 <br>
                 <label for="sped_type_date">as of</label>
                 <input type="text" id="sped_type_date" value="">
+                
+                <br>
+                <datalist id="walk-in_list">
+                    <option value="marked"></option>
+                    <option value="n/a"></option>
+                </datalist>
+                <label for="speech">walk-in indicator</label>
+                <input list="walk-in_list" for="speech" id="walk-in" value="">
 
                 <br>
                 <datalist id="speech_list">
                     <option value="populated as &quot;Yes&quot;"></option>
                     <option value="populated as &quot;No&quot;"></option>
+                    <option value="n/a for Heritage"></option>
                 </datalist>
                 <label for="speech">Speech custom field</label>
                 <input list="speech_list" for="speech" id="speech" value="">
