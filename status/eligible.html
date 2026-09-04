@@ -91,7 +91,6 @@
                 note += "SpEd Type " + sped_type + " as of " + sped_type_date;
                 note += "<br>% in regular class: " + gen_ed;
                 note += "<br>SpEd Type field " + sped_type_update;
-                if(walk_in!=""){note += "<br>walk-in indicator: " + walk_in;}
                 note += "<br>Speech custom field: " + speech;
 
                 var pk_progset = document.getElementById("pk_progset").value.trim();
@@ -131,6 +130,9 @@
 
                 var status_change = document.getElementById("status_change").value.trim();
                 note += "<br><br>Status changed to " + status_change + ".";
+
+                var non_seis_from = document.getElementById("non_seis_from").value.trim();
+                if(non_seis_from!="n/a"){note += "<br>Affirmed non-SEIS IEP from " + non_seis_from;}
 
                 return note;
             }
@@ -270,16 +272,6 @@
                 <label for="speech">Speech custom field</label>
                 <input list="speech_list" for="speech" id="speech" value="">
 
-                <br>
-                <datalist id="walk_in_list">
-                    <option value="n/a"></option>
-                    <option value="added"></option>
-                    <option value="already marked"></option>
-                    <option value="removed"></option>
-                </datalist>
-                <label for="walk_in">walk-in indicator</label>
-                <input list="walk_in_list" for="walk_in" id="walk_in" value="">
-
                 <!-- PK PROGRAM SETTING -->
                 <datalist id="cxn_list">
                     <option value="correction needed"></option>
@@ -292,6 +284,7 @@
                 <label for="pk_progset"> should be</label>
                 <input list="pk_progset_list" for="pk_progset" id="pk_progset" value="">
                 <datalist id="pk_progset_list">
+                    <option value="SvcProvLoc (walk-in)"></option>
                     <option value="Reg EC"></option>
                     <option value="Sep Class"></option>
                 </datalist>
@@ -305,6 +298,7 @@
                 <datalist id="pk_loc_list">
                     <option value="Same"></option>
                     <option value="Different"></option>
+                    <option value="blank"></option>
                 </datalist>
                 <br>
                 <label for="pk_loc_cxn">PK Location cxn?</label>
@@ -316,6 +310,7 @@
                 <datalist id="pk_hrs_list">
                     <option value="Yes"></option>
                     <option value="No"></option>
+                    <option value="blank"></option>
                 </datalist>
                 <br>
                 <label for="pk_hrs_cxn">PK 10+ hrs cxn?</label>
@@ -331,6 +326,10 @@
                 </datalist>
                 <label for="status_change">Status changed to</label>
                 <input list="status_change_list" for="status_change" id="status_change" value="">
+
+                <br>
+                <label for="non_seis">Affirmed non-SEIS IEP from</label>
+                <input type="text" id="non_seis_from" value="n/a">
 
                 <br>
                 <label for="req_status"><b>REQUEST STATUS</b></label>
