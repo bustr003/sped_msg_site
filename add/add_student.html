@@ -65,6 +65,14 @@
                 note += "<br>" + requester + ", " + role + " requested: Add Student";
                 if(req_comment!=""){note += "<br>\"" + req_comment + "\"";}
 
+                var referred_by = document.getElementById("referred_by").value;
+                var referred_by_note = document.getElementById("referred_by_note").value.trim();
+                if(referred_by=="Referred By added"){note += "<br> Referred by " + referred_by_note;}
+
+                var referred_date = document.getElementById("referred_date").value;
+                var referred_date_note = document.getElementById("referred_date_note").value.trim();
+                if(referred_date=="Referred Date added"){note += " on " + referred_date_note;}
+
                 var req_status = document.getElementById("req_status").value;
                 var ssid = document.getElementById("ssid").value;
                 var seis_id = document.getElementById("seis_id").value;
@@ -133,17 +141,17 @@
                 if(record_status!=""){note += "<br>Status: " + record_status;}
                 if(guide!=""){note += "<br>View History guide " + guide;}
 
-                var new_initial_type = document.getElementById("new_initial_type").value;
+                var future_cleanup = document.getElementById("future_cleanup").value;
                 var services_status = document.getElementById("services_status").value;
                 var goals_status = document.getElementById("goals_status").value;
                 var ie_status = document.getElementById("ie_status").value;
                 var mtg_notes_status = document.getElementById("mtg_notes_status").value;
                 var ap_status = document.getElementById("ap_status").value;
 
-                if(new_initial_type=="Yes"){note += "<br><br>NEW INITIAL EVAL - clean-up";}
-                if(services_status!=""){note += "<br>Services: " + services_status;}
-                if(goals_status!=""){note += "<br>Goals: " + goals_status;}
+                if(future_cleanup!=""){note += "<br><br>FUTURE IEP CLEANUP for " + future_cleanup;}
                 if(ie_status!=""){note += "<br>Info/Eligibility Form: " + ie_status;}
+                if(goals_status!=""){note += "<br>Goals: " + goals_status;}
+                if(services_status!=""){note += "<br>Services: " + services_status;}
                 if(mtg_notes_status!=""){note += "<br>Notes Form: " + mtg_notes_status;}
                 if(ap_status!=""){note += "<br>Assessment Plan: " + ap_status;}
 
@@ -184,6 +192,24 @@
                 <br>
                 <label for="req_comment">Request Comment</label>
                 <textarea id="req_comment" rows=2 cols="50"></textarea>
+
+                <br>
+                <label>Referred Date</label>
+                <select id="referred_date">
+                    <option value="to do">TO DO</option>
+                    <option value="n/a">n/a</option>
+                    <option value="Referred Date added">added</option>
+                </select>
+                <input type="text" id="referred_date_note">
+
+                <br>
+                <label>Referred By</label>
+                <select id="referred_by">
+                    <option value="to do">TO DO</option>
+                    <option value="n/a">n/a</option>
+                    <option value="Referred By added">added</option>
+                </select>
+                <input type="text" id="referred_by_note">
 
                 <datalist id="req_status_list">
                     <option value="Request completed."></option>
@@ -241,14 +267,6 @@
                 <br>
 
                 <br>
-                <label>Psych access</label>
-                <select id="psych_access">
-                    <option value="n/a">n/a</option>
-                    <option value="Psych access granted">granted</option>
-                </select>
-                <input type="text" id="psych_access_note">
-
-                <br>
                 <label>IEP Team</label>
                 <select id="iep_team_access">
                     <option value="n/a">n/a</option>
@@ -256,6 +274,17 @@
                     <option value="IEP Team added">added</option>
                 </select>
                 <input type="text" id="iep_team_note">
+
+                <br>
+                <label>Psych access</label>
+                <select id="psych_access">
+                    <option value="n/a">n/a</option>
+                    <option value="Psych access granted">granted</option>
+                </select>
+                <input type="text" id="psych_access_note">
+                <span style="background-color: rgb(249, 103, 244);">
+                <br>!!!DON'T FORGET PSYCH ACCESS FOR PRIVATE SCHOOL!!!
+                </span>
 
                 <br><br>ENROLLMENT INFO
 
@@ -266,7 +295,7 @@
                 <br>
                 <label for="grade">Grade</label>
                 <input type="text" id="grade" value="">
-                <br><i>*If 8th grade, add the 5 SEIS EUHSD providers.</i>
+                <br><i>*8th grade --> access for 4 SEIS EUHSD providers</i>
 
                 <br>
                 <datalist id="mname_list">
@@ -361,20 +390,19 @@
                 <input list="guide_list" id="guide" value="">
 
                 <br><br>
-                <label for="new_initial_type">NEW INITIAL EVAL</label>
-                <input list="new_initial_type_list" for="new_initial_type" id="new_initial_type" value="">
-                <datalist id="new_initial_type_list">
-                    <option value="No"></option>
-                    <option value="Yes"></option>
+                <label for="future_cleanup">FUTURE IEP CLEANUP</label>
+                <input list="future_cleanup_list" for="future_cleanup" id="future_cleanup" value="">
+                <datalist id="future_cleanup_list">
+                    <option value="new Initial Eval"></option>
+                    <option value="non-SEIS IEP"></option>
                 </datalist>
 
-                <datalist id="services_list">
-                    <option value="discontinued & deleted, form cleared"></option>
-                    <option value="nothing to clear"></option>
+                <datalist id="ie_list">
+                    <option value="updated"></option>
                 </datalist>
                 <br>
-                <label for="services_status">Services</label>
-                <input list="services_list" id="services_status" value="">
+                <label for="ie_status">Info/Eligibility Form</label>
+                <input list="ie_list" id="ie_status" value="">
 
                 <datalist id="goals_list">
                     <option value="deleted"></option>
@@ -385,12 +413,13 @@
                 <label for="goals_status">Goals</label>
                 <input list="goals_list" id="goals_status" value="">
 
-                <datalist id="ie_list">
-                    <option value="updated"></option>
+                <datalist id="services_list">
+                    <option value="discontinued & deleted, form cleared"></option>
+                    <option value="nothing to clear"></option>
                 </datalist>
                 <br>
-                <label for="ie_status">Info/Eligibility Form</label>
-                <input list="ie_list" id="ie_status" value="">
+                <label for="services_status">Services</label>
+                <input list="services_list" id="services_status" value="">
 
                 <datalist id="mtg_notes_list">
                     <option value="cleared"></option>
