@@ -73,8 +73,22 @@
                 var special_notes = document.getElementById("special_notes").value.trim();
                 
                 note += "<br><br>" + req_status;
-                if(sig_statement!=""){note += "<br>IEP held on " + meeting_date + ", Parent signed \"" + sig_statement + "\" on " + sig_date + ".";}
-                    else{note += "<br>IEP held on " + meeting_date + ", Parent signed on " + sig_date + ".";}
+                if(sig_statement!=""){ //include sig statement
+                        if(sig_date!==""){ //include sig date
+                            note += "<br>IEP held on " + meeting_date + ", Parent signed \"" + sig_statement + "\" on " + sig_date + ".";
+                        }
+                        else{ //no sig date
+                            note += "<br>IEP held on " + meeting_date + ", Parent signed \"" + sig_statement + "\".";
+                        }
+                    }
+                    else{ //no sig statement
+                        if(sig_date!==""){ //include sig date
+                            note += "<br>IEP held on " + meeting_date + ", Parent signed on " + sig_date + ".";
+                        }
+                        else{ //no sig date
+                            note += "<br>IEP held on " + meeting_date + ".";
+                        }
+                    }
                 if(special_notes!=""){note += "<br><br>" + special_notes;}
 
                 var initial_section = document.getElementById("initial_section").value.trim();
@@ -140,6 +154,10 @@
                 <br><br>
                 <b>PROCEDURES</b>
 
+                <datalist id="pop_list">
+                    <option value="populated"></option>
+                </datalist>
+
                 <br>
                 <datalist id="statement_list">
                     <option value="not eligible"></option>
@@ -169,7 +187,7 @@
 
                 <br>
                 <label for="ap_consent">AP Consent Date</label>
-                <input type="text" id="ap_consent" value="">
+                <input list="pop_list" for="ap_consent" id="ap_consent" value="">
 
                 <br>
                 <datalist id="meet_list">
